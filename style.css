@@ -1,0 +1,195 @@
+* {
+    box-sizing: border-box;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.ingredient.hide {
+    display: none;
+}
+
+main {
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: fit-content;
+    padding-bottom: 5em;
+    flex-grow: 1;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height:100vw;
+    /* display: flex;
+    flex-direction: column;
+     */
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    background-color: lightgray;
+    width: 100%;
+    margin: auto;
+    padding: 1em;
+}
+
+.container {
+    margin: auto;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.spacing {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.spacing > a > * {
+    border: 2px solid grey;
+    border-radius: 5em;
+    width: 6em;
+    height: 2.8em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    border-bottom: 2px solid grey;
+    padding-inline: 1.5em;
+}
+
+.search {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.searchBar {
+    width: 100%;
+    border: 2px solid lightgray;
+    padding: 0.5em;
+    border-radius: 2em;
+    font-size: 1.1rem;
+}
+
+.searchBtn {
+    position: absolute;
+    right: 1em;
+    width: 2.4em;
+    height: 2.4em;
+    border-radius: 5em;
+    text-align: center;
+    background-color: white;
+    border: none;
+}
+
+.results {
+    position: relative;
+    border: 2px solid grey;
+    margin-top: 2em;
+    width: 85vw;
+    height: 90%;
+
+
+}
+
+.resultsGrid {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: stretch;
+
+    height: fit-content;
+}
+
+.ingredient {
+    background-color: lightgrey;
+    /* width: max-content; */
+    height: 2.5em;
+    padding: 0em 0.7em;
+    border-radius: 0.5em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0.3em;
+
+    flex: auto;
+    max-width: 20em;
+}
+
+.ingredient.select {
+    background-color: rgb(118, 213, 123);
+}
+
+.cardContainer {
+    width: 100%;
+}
+
+.recipeList{
+    width: 100%;
+}
+.card {
+    width: 100%;
+    /* border: 2px solid grey; */
+}
+
+.recipe {
+    border: 2px solid grey;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1em;
+    align-items: center;
+}
+
+.info {
+    /* border: 2px solid grey; */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-content: space-around;
+    
+}
+
+.recipeName {
+    align-self: flex-start    ;
+    margin: -0.5em 0 1em 0.5em;
+}
+
+.infoCard {
+    /* border: 2px solid grey; */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.recipeImage {
+    margin: auto;
+}
+
+.hide {
+    display: none;
+}
+
+.extra {
+    text-align: right;
+}
+
+.extra > * {
+    /* display: flex;
+    align-items: center; */
+}
