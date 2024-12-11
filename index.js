@@ -97,5 +97,13 @@ $(document).ready(function() {
             }
         })
     })
+
+    $(".removeBtn").on('click', function() {
+        selected = []
+        localStorage.setItem("selected", selected)
+        $(".resultsGrid").children(".ingredient").each(function() {
+            $(this).toggleClass("select", false)
+        })
+    })
 })
 
