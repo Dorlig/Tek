@@ -63,6 +63,10 @@ swaps = [
 // On document load
 $(document).ready(function() {
     // Get what ingredients have been selected
+    if (sessionStorage.getItem("selected") == null) {
+        sessionStorage.setItem("selected", [])
+    }
+
     let selected = sessionStorage.getItem("selected").split(",") || []
 
     // Define recipeInfo object, that pairs a count of missing ingredients to a list of recipes

@@ -64,6 +64,10 @@ ingredients.sort()
 // On document load
 $(document).ready(function() {
     // Get selected items from localstorage
+    if (sessionStorage.getItem("selected") == null) {
+        sessionStorage.setItem("selected", [])
+    }
+
     let selected = sessionStorage.getItem("selected").split(",") || []
     let searchedString = ""
 
