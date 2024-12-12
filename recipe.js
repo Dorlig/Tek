@@ -38,7 +38,7 @@ let recipes = {
         "brød": "2 skiver",
         "ost": "2 skiver"
     }},
-    "Pandekager": {"timeTotal": 60, "time": 60, "difficulty": "#ffd300", "health": "red", "image": "/kunst.jpg", ingredients: {
+    "Pandekager": {"timeTotal": 60, "time": 60, "difficulty": "#ffd300", "health": "red", "image": "/pandekager.jpg", ingredients: {
         "hvedemel": "500 g",
         "mælk": "2 dl",
         "øl": "1 dåse",
@@ -46,7 +46,8 @@ let recipes = {
         "bagepulver": "1 spsk",
         "salt": "2 tsk",
         "smør": "til panden",
-        "sukker": "til servering"
+        "sukker": "til servering",
+        "The corpses of your enemies": "3 stk"
     }},
 }
 
@@ -62,7 +63,7 @@ swaps = [
 // On document load
 $(document).ready(function() {
     // Get what ingredients have been selected
-    let selected = localStorage.getItem("selected").split(",") || []
+    let selected = sessionStorage.getItem("selected").split(",") || []
 
     // Define recipeInfo object, that pairs a count of missing ingredients to a list of recipes
     let recipeInfo = {}

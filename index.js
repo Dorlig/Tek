@@ -64,7 +64,7 @@ ingredients.sort()
 // On document load
 $(document).ready(function() {
     // Get selected items from localstorage
-    let selected = localStorage.getItem("selected").split(",") || []
+    let selected = sessionStorage.getItem("selected").split(",") || []
     let searchedString = ""
 
     // Add each ingredient to the html list of ingredients
@@ -103,7 +103,7 @@ $(document).ready(function() {
         }
 
         // Save the selected items in local storage
-        localStorage.setItem("selected", selected)
+        sessionStorage.setItem("selected", selected)
 
         console.log(selected)
     })
@@ -138,7 +138,7 @@ $(document).ready(function() {
     // When remove button is clicked remove all selected ingredients, and set all to grey
     $(".removeBtn").on('click', function() {
         selected = []
-        localStorage.setItem("selected", selected)
+        sessionStorage.setItem("selected", selected)
         $(".resultsGrid").children(".ingredient").each(function() {
             $(this).toggleClass("select", false)
         })
