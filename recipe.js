@@ -1,3 +1,5 @@
+// All recipes
+
 let recipes = {
     "Spaghetti Bolognese": {"timeTotal": 60, "time": 15, "difficulty": "#ffd300", "health": "#ffd300", "image": "/kunst.jpg", ingredients: {
         "bacon": "50 g",
@@ -48,6 +50,7 @@ let recipes = {
     }},
 }
 
+// Arrays of what ingredients you can swap with each other
 swaps = [
     ["gulerod", "squash"],
     ["tomat", "tomat på dåse"],
@@ -56,17 +59,21 @@ swaps = [
 
 ]
 
+// On document load
 $(document).ready(function() {
+    // Get what ingredients have been selected
     let selected = localStorage.getItem("selected").split(",") || []
 
+    // Define recipeInfo object, that pairs a count of missing ingredients to a list of recipes
     let recipeInfo = {}
     for (const [name, value] of Object.entries(recipes)) {
+        // For each recipe find number of missing ingredients
         let missingCount = 0;
         for (const [ingName, ingNum] of Object.entries(value.ingredients)) {
             if (! selected.includes(ingName)) missingCount += 1;
         }
 
-
+        // Update recipeInfo object
         if (!recipeInfo.hasOwnProperty(missingCount)) {
             recipeInfo[missingCount] = {}
         }
@@ -74,17 +81,21 @@ $(document).ready(function() {
     }
 
     console.log(recipeInfo)
-
+    
+    // Create, update and display each recipe to app
     for (const [count, value] of Object.entries(recipeInfo)) {
+        // Create card, that contains all recipes with a given number of missing ingredient
         let card = $(".cardTemp").clone()
         card.toggleClass("hide")
         card.toggleClass("cardTemp")
         
         card.find(".missing").text(count)
 
+        // For each recipe that should be in that card, create it
         for (const [name, info] of Object.entries(value)) {
             console.log(count, name)
 
+            // Clone the html recipe template object, and set name, time, difficulty, health, and image
             let r = $(".recipeTemp").clone()
             r.toggleClass("hide")
             r.toggleClass("recipeTemp")
@@ -96,13 +107,18 @@ $(document).ready(function() {
 
             r.find(".recipeImage").attr("src",info["image"]);
 
+            // Find all the ingredients in the recipe that are not selected
             let missingIng = Object.keys(info.ingredients).filter(x => !selected.includes(x))
             console.log(missingIng)
 
+            // For each missing ingredient
             let swapCount = 0
             for (let ing of missingIng) {
+                // For each array containing swaps
                 for (let swapList of swaps) {
+                    // If that array of swaps contains the missing ingredient
                     if (swapList.includes(ing)) {
+                        // Then if it also has another selected ingredient, increment the swap counter by 1
                         if (swapList.filter(value => selected.includes(value)).length > 0) {
                             // console.log(swapList)
                             swapCount++
@@ -110,20 +126,19 @@ $(document).ready(function() {
                     }
                 }
             }
-            // console.log(swapCount)
+            // Update the number of replacement ingredients
             r.find(".replaceCount").text(swapCount)
 
-
+            // When recipe is click, redirect to the page for that recipe
             r.on("click", function() {
                 window.location.replace("cook.html?recipe="+name);
             })
             
+            // Append the recipe to the list of recipes under the card with {count} missing ingredients
             card.find(".recipeList").append(r)
         }
+        // Append the card with {count} missing ingredients to the container for all cards
         $(".cardContainer").append(card)
     }
-
-
-    // $(".")
 })
 

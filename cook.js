@@ -1,3 +1,5 @@
+// Redefine all recipes
+
 let recipes = {
     "Spaghetti Bolognese": {"timeTotal": 60, "time": 15, "difficulty": "#ffd300", "health": "#ffd300", "image": "/kunst.jpg", ingredients: {
         "bacon": "50 g",
@@ -47,6 +49,8 @@ let recipes = {
         "sukker": "til servering"
     }},
 }
+
+// Get the recipe from the URL parameters
 const queryString = window.location.search;
 console.log(queryString);
 
@@ -55,17 +59,22 @@ const urlParams = new URLSearchParams(queryString);
 const recipe = urlParams.get('recipe')
 console.log(recipe);
 
+// On document is loaded
 $(document).ready(function() {
+    // Update title of page 
     $(".title").text(recipe)
     document.title=recipe
-    let r = recipes[recipe]
-    let ing = r["ingredients"]
 
+    // Get the recipe
+    let r = recipes[recipe]
+
+    // Set the time to complete recipe, difficulty, and health
     $(".timeTotalValue").text(r["timeTotal"])
     $(".timeWorkValue").text(r["time"])
     $(".difficultySvg").css({ fill: r["difficulty"] })
     $(".healthSvg").css({ fill: r["health"]})
 
+    // Create template steps for recipe, and append them to the list of steps in the recipe
     for (let i = 0; i < 5; i++) {
         let step = $(".tempStep").clone()
         step.toggleClass("hide")
@@ -74,7 +83,8 @@ $(document).ready(function() {
         $(".stepList").append(step)
     }
 
-    for (const [ingredient, quantity] of Object.entries(ing)) {
+    // Append the ingredients to the list of ingredients
+    for (const [ingredient, quantity] of Object.entries(r["ingredients"])) {
         $(".ingredientList").append(`<li>${ingredient}: ${quantity}</li>`)
     }
 })
