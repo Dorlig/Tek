@@ -1,4 +1,4 @@
-ingredients = [
+let ingredients = [
     "Løg",
     "Pasta",
     "Hakket Oksekød",
@@ -39,8 +39,25 @@ ingredients = [
     "Avocado",
     "Lime",
     "Brød",
-    "Ost"
+    "Ost",
+    "Øl",
+    "Snaps",
+    "Hvidvin",
+    "Rosévin",
+    "Ethanol",
+    "Whisky",
+    "Salt"
+
 ]
+
+let categories = {
+    'grøntsag': ["Agurk", "Tomat", "Kartoffel", "Rodfrugter", "Gulerod", "Squash"],
+    'kød': ["Hakket Oksekød", "Kyllingebryst", "Bacon", "Kød"],
+    'ost': ["Ost", "Parmesan", "Cheddar"],
+    'mejeri': ["Mælk", "Fløde"],
+    'alkohol': ["Øl", "Snaps", "Rødvin", "Rosévin", "Hvidvin", "Ethanol", "Vodka", "Whisky"]
+}
+
 ingredients.sort()
 
 
@@ -85,11 +102,18 @@ $(document).ready(function() {
     })
 
     $("#searchBar").on('input', function() {
-        searchedString = $("#searchBar").val()
+        let searchedString = $("#searchBar").val()
     
         $(".resultsGrid").children(".ingredient").each(function() {
             let ingName = $(this).first().text().toString()
-            if (!ingName.toLowerCase().includes(searchedString.toLowerCase())) {
+
+            let selectedCats = Object.keys(categories).filter(value => value.includes(searchedString))
+            let catIngredients = []
+            for (let cat of selectedCats) {
+                catIngredients.push(...categories[cat])
+            }
+
+            if (!ingName.toLowerCase().includes(searchedString.toLowerCase()) && !catIngredients.includes(ingName)) {
                 $(this).toggleClass("hide", true)
             }
             else {

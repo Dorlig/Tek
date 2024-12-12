@@ -18,22 +18,49 @@
             </h1>
 
             <div class="cookRecipe">
-                <div class="timeRow">
-                    <div class="timeTotal"></div>
-                    <div class="timeWork"></div>
-                </div>
-                <div class="infoRow">
-                    <div class="cookDifficulty"></div>
-                    <div class="cookHealth"></div>
+                <div class="recipeInfo">
+                    <div class="timeRow">
+                        <div class="timeTotal">Total tid: <span class="timeTotalValue">1</span> min</div>
+                        <div class="timeWork">Arbejdstid: <span class="timeWorkValue">3</span> min</div>
+                    </div>
+                    <div class="infoRow">
+                        <div class="difficulty">Sværhedsgrad: 
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-circle-fill difficultySvg" viewBox="0 0 16 16">
+                                <circle cx="8" cy="8" r="8"/>
+                            </svg>
+                        </div>
+                        <div class="healthy">Sundhed: 
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="purple" class="bi bi-circle-fill healthSvg" viewBox="0 0 16 16">
+                                <circle cx="8" cy="8" r="8"/>
+                            </svg>
+                        </div>
+                    </div>
                 </div>
                 <div class="ingredients">
+                    <h2>Ingredienser:</h2>
                     <ul class="ingredientList">
 
                     </ul>
                 </div>
                 <div class="steps">
+                    <h2>Fremgangsmåde</h2>
+                    <div class="stepList">
 
+                    </div>
                 </div>
+            </div>
+
+            <div class="continueContainer">
+                <a href="recipe.html" class="continueLink">
+                    <button class="continueBtn">
+                        Gå tilbage
+                    </button>
+                </a>
+            </div>
+
+            <div class="tempStep hide step">
+                <h4 class="stepTitle">Lorem, ipsum dolor.</h3>
+                <p class="stepInfo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis voluptatum libero voluptatem doloremque iste minus odit, perferendis earum voluptatibus placeat?</p>
             </div>
         </main>
         <footer>

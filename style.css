@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    /* color: whitesmoke; */
 }
 
 .ingredient.hide {
@@ -22,6 +23,7 @@ body{
     padding: 0;
     width: 100%;
     height:100vw;
+    /* background-color: #21262a; */
     /* display: flex;
     flex-direction: column;
      */
@@ -149,6 +151,32 @@ footer {
     max-width: 20em;
 }
 
+.continueContainer {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.continueLink {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.continueBtn {
+    font-size: 1.3rem;
+    width: 80%;
+    height: 2em;
+    border-radius: 1.5em;
+    border: 1.5px solid darkgreen;
+    background-color: lightgreen;
+}
+
 .ingredient.select {
     background-color: rgb(118, 213, 123);
 }
@@ -171,6 +199,7 @@ footer {
     justify-content: space-between;
     margin-bottom: 1em;
     align-items: center;
+    height: 7.5em;
 }
 
 .info {
@@ -199,6 +228,15 @@ footer {
     margin: auto;
 }
 
+.clock {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
 .hide {
     display: none;
 }
@@ -211,3 +249,119 @@ footer {
     /* display: flex;
     align-items: center; */
 }
+
+
+
+.cookRecipe {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.recipeInfo {
+    background-color: lightgray;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0.5em 0 0.5em 0;
+    border-radius: 0.5em;
+}
+
+.timeRow, .infoRow{
+    display: flex;
+    justify-content: space-around;
+}
+
+.ingredients {
+    margin-top: 2em;
+    margin-left: -2em;
+
+    background-color: lightgray;
+    padding-inline: 2em;
+    border-radius: 1em;
+}
+
+.ingredientList {
+    /* margin-left: 1em; */
+}
+
+.stepList {
+    margin-left: 1em;
+}
+
+.step > h4, .step > p {
+    margin: 0;
+    margin-bottom: 0.1em;
+}
+.step {
+    margin-bottom: 1em;
+}
+
+.steps {
+    
+}
+
+
+
+
+
+
+.switch {
+    position: relative;
+    width: 5.3em;
+    height: 2.8em;
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 2.5em;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 2.5em;
+    width: 2.5em;
+    left: 0.15em; 
+    bottom: 0.15em;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+  }
+  
+  input:checked + .slider {
+    background-color: #21262a;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #21262a;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(2.5em);
+    -ms-transform: translateX(2.5em);
+    transform: translateX(2.5em);
+  }
+
+  .options {
+    top: 15.5%;
+    width: 50%;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+  }
