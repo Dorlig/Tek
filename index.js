@@ -122,7 +122,7 @@ $(document).ready(function() {
             let ingName = $(this).first().text().toString()
 
             // Get the categories of ingredients, which are searched for
-            let selectedCats = Object.keys(categories).filter(value => value.includes(searchedString))
+            let selectedCats = Object.keys(categories).filter(value => value.includes(searchedString.toLowerCase()))
             // Find all the ingredients in the searched categories
             let catIngredients = []
             for (let cat of selectedCats) {
