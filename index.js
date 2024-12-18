@@ -88,6 +88,7 @@ $(document).ready(function() {
         let ingName = $(this).first().text().toString()
         if (selected.includes(ingName.toLowerCase())) {
             $(this).toggleClass("select", true)
+            $(this).css("order", "-1")
         }
     })
 
@@ -102,8 +103,10 @@ $(document).ready(function() {
         console.log(ingName)
         if (selected.includes(ingName.toLowerCase())) {
             selected.splice(selected.indexOf(ingName.toLowerCase()),1)
+            $(this).css("order", "0")
         } else {
             selected.push(ingName.toLowerCase())
+            $(this).css("order", "-1")
         }
 
         // Save the selected items in local storage
@@ -145,6 +148,7 @@ $(document).ready(function() {
         sessionStorage.setItem("selected", selected)
         $(".resultsGrid").children(".ingredient").each(function() {
             $(this).toggleClass("select", false)
+            $(this).css("order", "0")
         })
     })
 })

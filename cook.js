@@ -86,6 +86,6 @@ $(document).ready(function() {
 
     // Append the ingredients to the list of ingredients
     for (const [ingredient, quantity] of Object.entries(r["ingredients"])) {
-        $(".ingredientList").append(`<li>${ingredient}: ${quantity}</li>`)
+        $(".ingredientList").append(`<li>${ingredient.charAt(0).toUpperCase() + ingredient.slice(1)}: ${quantity}</li>`)
     }
 })
