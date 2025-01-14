@@ -46,8 +46,7 @@ let recipes = {
         "bagepulver": "1 spsk",
         "salt": "2 tsk",
         "smør": "til panden",
-        "sukker": "til servering",
-        "The corpses of your enemies": "3 stk"
+        "sukker": "til servering"
     }},
 }
 

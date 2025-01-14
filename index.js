@@ -92,15 +92,17 @@ $(document).ready(function() {
         }
     })
 
-    // When ingredients is clicked, select the element
+    // Når ingrediens bliver trykket på marker elementet
     $(".ingredient").on('click', function() {
-        // Make green/grey in app
+        // Skift mellem klasse på objekt, som styrer farven
         $(this).toggleClass("select")
 
-        // Add or remove element to list of selected ingredients depending on if it was already selected
+        // Find navnet på ingrediensen
         let ingName = $(this).first().text().toString()
 
-        console.log(ingName)
+        // console.log(ingName)
+        // Alt efter om ingrediens allerede er valgt, sorter den det rigtige sted
+        // Hvis ingrediensen allerede var valgt, fjern den fra listen af valgte ingredienser
         if (selected.includes(ingName.toLowerCase())) {
             selected.splice(selected.indexOf(ingName.toLowerCase()),1)
             $(this).css("order", "0")
@@ -109,17 +111,16 @@ $(document).ready(function() {
             $(this).css("order", "-1")
         }
 
-        // Save the selected items in local storage
+        // Gem informationen om valgte ingredienser i session storage
         sessionStorage.setItem("selected", selected)
-
-        console.log(selected)
+        // console.log(selected)
     })
 
     // When something typed into searchbar filter ingredients
     $("#searchBar").on('input', function() {
         // Get what is seatched
         searchedString = $("#searchBar").val()
-    
+        
         // For each ingredient
         $(".resultsGrid").children(".ingredient").each(function() {
             let ingName = $(this).first().text().toString()
